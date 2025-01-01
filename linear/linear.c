@@ -1,30 +1,40 @@
-#include <stdio.h>
+#include<stdio.h>
+#include<stdlib.h>
 #define n 5
-int arr[n]={10,20,30,40,50},user;
 
-void findeindex(){
-  printf("Enter finde value:");
-  scanf("%d",&user);
-
-for (int i = 0; i <n; i++)
+int main(){
+int arr[n];
+int user,count=1;
+for (int i = 0; i < n; i++)
 {
-  if (user==arr[i])
+  arr[i] = rand()%50 +10;
+}
+
+for (int i = 0; i < n; i++)
+{
+  printf("%d ",arr[i]);
+}
+
+printf("\nEnter value to finde arr:");
+scanf("%d",&user);
+
+for (int i = 0; i < n; i++)
+{
+  if (arr[i]==user)
   {
-    printf("index is:%d",i);
+    printf("value is found\n");
     break;
-  }else{
-    if (i==n-1)
-    {
-      printf("value not found");
-    }
-    
+  } else{
+    count++;
   }
   
 }
 
-
+if (arr[count-1]==user)
+{
+ printf("value is found position:%d",count);
 }
 
-int main(){
-findeindex();
+
+
 }
