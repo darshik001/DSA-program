@@ -1,51 +1,56 @@
 #include<stdio.h>
+#include<stdlib.h>
+#define max 5
+
+
+int getdata(int arr1[],int arr2[],int m){
+   for (int i = 0; i < m; i++)
+   {
+    arr1[i]= (rand()%50)+1;
+
+    arr2[i]= (rand()%50)+10;
+
+   }
+
+   for (int i = 0; i < m; i++)
+   {
+    printf("%d\t",arr1[i]);
+   }
+   
+   printf("\n");
+   for (int i = 0; i < m; i++)
+   {
+    printf("%d\t",arr2[i]);
+   }
+   printf("\n");
+
+}
+
+int mergearr(int arr1[],int arr2[],int arr3[],int m){
+   int index = 0;
+   for (int i = 0; i < max; i++,index++)
+   {
+      arr3[index] = arr1[i];
+   }
+   for (int i = 0; i < max; i++,index++)
+   {
+      arr3[index] = arr2[i];
+   }
+   
+
+   for (int i = 0; i <index; i++)
+   {
+    printf("%d\t",arr3[i]);
+   }
+   
+}
+
 
 int main(){
-int arr1[] = {1,2,3,4,5,6};
-int arr2[20];
-int arr3[20]; 
-int n;
-int m;
+int arr1[max];
+int arr2[max];
+int arr3[50];
 
-printf("Enter value to print arr1:");
-scanf("%d",&n);
-for (int i = 0; i < n; i++)
-{
-  printf("Enter value of arr1 index:%d:",i);
-  scanf("%d",&arr1[i]);
+getdata(arr1,arr2,max);
+mergearr(arr1,arr2,arr3,max);
 }
-
-printf("\nEnter value to print arr1:");
-scanf("%d",&m);
-for (int i = 0; i < m; i++)
-{
-  printf("Enter value of arr1 index:%d:",i);
-  scanf("%d",&arr2[i]);
-}
-
-int a = 0;
-
-for (int  i = 0; i < n; i++,a++)
-{
-     arr3[a] = arr1[i];
-}
-for (int  i = 0; i < n; i++,a++)
-{
-     arr3[a] = arr2[i];
-}
-
-for (int i = 0; i < a; i++)
-{
-  printf("%d ",arr3[i]);
-}
-
-int lenght =sizeof(arr3)/ sizeof(arr3[0]);
-
-printf("\n%d",lenght);
-
-}
-
-
-
-
-
